@@ -2,7 +2,7 @@
     "username": "Twitchname",
     "password": "oauth:token",	
     "channel": ["Channel"],
-	"ValorantName": "Name",
-	"Tagline": "Tagline",
+    "ValorantName": "Name",
+    "Tagline": "Tagline",
     "cooldown": "40000"
 }
