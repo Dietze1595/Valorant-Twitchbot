@@ -15,6 +15,6 @@
  
 ## Start
 
-* * open your commandwindow, an type the following lines
+* open your commandwindow, an type the following lines
   * cd \where\you\extracted\the\zip\
   * node index.js
