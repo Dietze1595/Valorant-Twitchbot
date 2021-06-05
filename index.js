@@ -76,33 +76,28 @@ async function getStats(chan) {
       'https://api.tracker.gg/api/v2/valorant/standard/matches/riot/'+config.ValorantName+'%23'+config.Tagline+'?type=competitive',
     )
     .then(response => {
-      if (response.status !== 200) {
-        var isNull = true;
-      } else { 
-	var matches = response.data.data;
-       for (var i = 0; i < 20; i++) {
+      if (response.status !== 200) 
+	  {
+		var isNull = true;
+      } else 
+	  { 
+		var matches = response.data.data;
+		for (var i = 0; i < 20; i++) {
          	stats = matches.matches[i].segments[0].stats;
          	kills = parseInt(stats.kills.value) + kills;
     		HS = parseInt(stats.headshotsPercentage.value) + HS;
-   		KD = parseInt(stats.kdRatio.value) + KD;
+			KD = parseInt(stats.kdRatio.value) + KD;
     		DAMAGE = parseInt(stats.damagePerRound.value) + DAMAGE;
-	}
-	avgKills = Math.round(kills / 20);
-	avgHs = Math.round(HS / 20);
-	avgKD = (KD / 20).toFixed(2);
-	avgDAMAGE = (DAMAGE / 20).toFixed(2);
+		}
+		avgKills = Math.round(kills / 20);
+		avgHs = Math.round(HS / 20);
+		avgKD = (KD / 20).toFixed(2);
+		avgDAMAGE = (DAMAGE / 20).toFixed(2);
 
-        client.action(
-          chan,
-          `Here are the stats of the last 20 matches: Avg. Kills: ${avgKills} - Avg. HS%: ${avgHs}% - Avg. K/D: ${avgKD} - Avg. Damage/Round: ${avgDAMAGE}`);
-      } 
-	      
-	      
-	      
-	      
-        client.action(chan, `Damage/Round: ${damage} | K/D Ratio: ${kd} | Kills/Map: ${kills}`);
+        client.action(chan, `Here are the stats of the last 20 matches: Avg. Kills: ${avgKills} - Avg. HS%: ${avgHs}% - Avg. K/D: ${avgKD} - Avg. Damage/Round: ${avgDAMAGE}`);
       }
-    })
+	  client.action(chan, `Damage/Round: ${damage} | K/D Ratio: ${kd} | Kills/Map: ${kills}`);
+	})
     .catch(function(error) {});
 }
 
