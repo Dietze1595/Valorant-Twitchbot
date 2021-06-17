@@ -33,7 +33,6 @@ const talkedRecently = new Set();
 client.on("chat", (channel, userstate, commandMessage, self) => {
 
 		if (talkedRecently.has(commandMessage)) {
-				client.action(channel, `Command in cooldown`); 
 		}else {
 			talkedRecently.add(commandMessage);
 			setTimeout(() => {
@@ -120,7 +119,7 @@ async function getlast(chan) {
 
 async function getRank(chan) {
     await axios.get(
-		'https://dgxfkpkb4zk5c.cloudfront.net/leaderboards/affinity/EU/queue/competitive/act/52e9749a-429b-7060-99fe-4595426a0cf7?startIndex=499&size=1', {
+		'https://dgxfkpkb4zk5c.cloudfront.net/leaderboards/affinity/EU/queue/competitive/act/'+config.AktId+'?startIndex=499&size=1', {
 	})
 	.then(response => {
 		if (response.status !== 200) {
