@@ -4,5 +4,6 @@
     "channel": ["Channel"],
     "ValorantName": "Name",
     "Tagline": "Tagline",
-    "cooldown": "40000"
+    "cooldown": "40000",
+    "AktId": "Akt-ID"
 }
